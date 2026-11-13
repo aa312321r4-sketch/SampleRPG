@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Data; 
 
 namespace ConsoleRPG
 {
@@ -8,14 +7,33 @@ namespace ConsoleRPG
     /// </summary>
     public abstract class Character
     {
+        /// <summary>
+        /// Name
+        /// </summary>
         public string Name { get; }
+
+        /// <summary>
+        /// MaxHP
+        /// </summary>
         public int MaxHp { get; }
+
+        /// <summary>
+        /// 現在HP
+        /// </summary>
         public int CurrentHp { get; private set; }
+
+        /// <summary>
+        /// 攻撃力
+        /// </summary>
         public int Attack { get; }
+
+        /// <summary>
+        /// 防御力
+        /// </summary>
         public int Defence { get; }
 
         /// <summary>
-        /// characterが持つ値の初期化を行うコンストラクタ
+        /// コンストラクタ
         /// </summary>
         protected Character(string name, int maxhp, int attack, int defence)
         {
@@ -32,12 +50,12 @@ namespace ConsoleRPG
         /// <param name="vDamage">ダメージ</param>
         public void TakeDamage(int vDamage)
         {
-           if (vDamage < 0)
+            if (vDamage < 0)
             {
                 throw new ArgumentOutOfRangeException(nameof(vDamage));
             }
 
-           CurrentHp = Math.Max(0, CurrentHp - vDamage);
+            CurrentHp = Math.Max(0, CurrentHp - vDamage);
         }
 
         /// <summary>
